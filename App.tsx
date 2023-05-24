@@ -17,6 +17,7 @@ import {
   useAuthRequest,
   makeRedirectUri /*, AuthSession */,
 } from 'expo-auth-session'
+import { api } from './src/lib/api'
 
 const StyleStripes = styled(Stripes)
 const StyleNLWLogo = styled(NLWLogo)
@@ -47,11 +48,17 @@ export default function App() {
   )
 
   useEffect(() => {
-    console.log(response)
-    console.log(request)
     if (response?.type === 'success') {
       const { code } = response.params
-      console.log(code)
+      api
+        .post('/register', {
+          code,
+        })
+        .then((response) => {
+          const { token } = response.data
+
+          console.log(token)
+        })
     }
   }, [response])
 
