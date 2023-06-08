@@ -1,5 +1,5 @@
 import axios from 'axios'
 
 export const api = axios.create({
-  baseURL: 'exp://y3b9nty.anonymous.19000.exp.direct:3333',
+  baseURL: 'exp://127.0.0.102:19000',
 })

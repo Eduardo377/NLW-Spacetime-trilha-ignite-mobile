@@ -49,7 +49,10 @@ export default function App() {
 
   useEffect(() => {
     if (response?.type === 'success') {
+      console.log(response)
+      console.log(request)
       const { code } = response.params
+      console.log(code)
       api
         .post('/register', {
           code,
